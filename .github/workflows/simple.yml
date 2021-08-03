@@ -7,6 +7,7 @@ jobs:
       - name: Build Steps
         run: |
           echo "Build Job Getting Executed"
+          ls "phani.txt"
   testing: 
     runs-on: ubuntu-latest
     if: always()
@@ -19,7 +20,7 @@ jobs:
   deployment: 
     runs-on: ubuntu-latest
     if: always()
-    needs: [build]
+    needs: [build, testing]
     steps:
       - name: Deployment Steps
         run: |
